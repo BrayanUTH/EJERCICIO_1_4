@@ -34,19 +34,15 @@ namespace EJERCICIO_1_4.Views
 
         private async void listEmple_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-                selectedEmployee = (e.CurrentSelection.FirstOrDefault() as Employee);
-                
+            selectedEmployee = (e.CurrentSelection.FirstOrDefault() as Employee);
+
         }
 
         private async void BtnViewEmployees_Clicked(object sender, EventArgs e)
         {
-            bool result = await DisplayAlert("Confirmacion", "¿Esta seguro de visualiar el empleado?", "Si", "No");
-            if (result)
-            {
-                ViewPhotoPage photoPage = new ViewPhotoPage();
-                photoPage.BindingContext = selectedEmployee;
-                await Navigation.PushAsync(photoPage);
-            }
+            ViewPhotoPage photoPage = new ViewPhotoPage();
+            photoPage.BindingContext = selectedEmployee;
+            await Navigation.PushAsync(photoPage);
         }
     }
 }
