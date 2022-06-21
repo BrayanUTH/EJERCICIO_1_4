@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="EJERCICIO_1_4.Views.RegisterPage">
+    <ContentPage.Content>
+        <StackLayout Padding="20">
+
+            <Image x:Name="photoImage" 
+                   BackgroundColor="#919797"
+                   HeightRequest="300"
+                   Margin="55,0"/>
+
+            <Label Text="Ingrese el nombre" 
+                   Margin="25,25,25,2"
+                   FontAttributes="Bold"
+                   TextColor="Black"
+                   FontSize="19"/>
+            <Entry Margin="25,0"
+                   Placeholder="Nombre Completo"
+                   Keyboard="Text"
+                   x:Name="txtName"/>
+
+            <Label Text="Descripcion" 
+                   Margin="25,25,25,2"
+                   FontAttributes="Bold"
+                   TextColor="Black"
+                   FontSize="19"/>
+            <Editor x:Name="txtDescription"
+                    Margin="25,0"
+                    Placeholder="Descripcion"
+                    HeightRequest="100"/>
+
+            <StackLayout 
+                Orientation="Horizontal"
+                HorizontalOptions="Center"
+                Margin="0,25,0,0">
+                <Button Text="Tomar Foto"
+                        WidthRequest="170"
+                        BackgroundColor="Yellow"
+                        BorderColor="Black"
+                        BorderWidth="1"
+                        x:Name="btnTakePhoto"
+                        Clicked="btnTakePhoto_Clicked"/>
+                
+                <Button Text="A SQLite"
+                        WidthRequest="170"
+                        BackgroundColor="Yellow"
+                        BorderColor="Black"
+                        BorderWidth="1"
+                        x:Name="btnSave"
+                        Clicked="btnSave_Clicked"/>
+                
+            </StackLayout>
+        </StackLayout>
+
+    </ContentPage.Content>
+</ContentPage>

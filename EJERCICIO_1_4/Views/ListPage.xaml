@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="EJERCICIO_1_4.Views.ListPage"
+             xmlns:Convertidor="clr-namespace:EJERCICIO_1_4.Helpers">
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Convertidor:ByteArrayToImage x:Key="ByteToImage" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <ContentPage.Content>
+        <StackLayout Padding="10">
+
+            <!-- SelectionMode="Single" = para seleccionar un solo elemento -->
+            <CollectionView x:Name="listEmple"
+                            SelectionMode="Single"
+                            SelectionChanged="listEmple_SelectionChanged">
+
+                <CollectionView.Header>
+                    <StackLayout>
+                        <Label Margin="10,0,0,0"
+                               Text="Listado de Empleados"
+                               FontSize="Title"
+                               FontAttributes="Bold"/>
+                    </StackLayout>
+                </CollectionView.Header>
+
+                <CollectionView.ItemsLayout>
+                    <LinearItemsLayout Orientation="Vertical"
+                                       ItemSpacing="6">
+                    </LinearItemsLayout>
+                </CollectionView.ItemsLayout>
+
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Frame CornerRadius="10"
+                               HasShadow="False"
+                               BackgroundColor="#DDDDDE">
+                            <StackLayout Orientation="Horizontal">
+                                <Image Source="{Binding photo,  Converter={StaticResource ByteToImage}}" 
+                                   HeightRequest="80"/>
+                                <StackLayout VerticalOptions="Center">
+                                    <Label Text="{Binding name}" TextColor="Black"/>
+                                    <Label Text="{Binding description}" TextColor="Black"/>
+                                </StackLayout>
+                            </StackLayout>
+                        </Frame>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+
+            <Button Text="Ver Empleado"
+                CornerRadius="10"
+                    x:Name="BtnViewEmployees"
+                    Clicked="BtnViewEmployees_Clicked"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
