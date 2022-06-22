@@ -17,6 +17,11 @@ namespace EJERCICIO_1_4.Views
         public ListPage()
         {
             InitializeComponent();
+
+            if (App.DBase == null)
+            {
+
+            }
         }
 
         protected override async void OnAppearing()
@@ -40,9 +45,18 @@ namespace EJERCICIO_1_4.Views
 
         private async void BtnViewEmployees_Clicked(object sender, EventArgs e)
         {
-            ViewPhotoPage photoPage = new ViewPhotoPage();
-            photoPage.BindingContext = selectedEmployee;
-            await Navigation.PushAsync(photoPage);
+            if (selectedEmployee == null)
+            {
+                await DisplayAlert("Advertencia", "Seleccione un empleado", "Ok");
+            }
+            else
+            {
+                ViewPhotoPage photoPage = new ViewPhotoPage();
+                photoPage.BindingContext = selectedEmployee;
+                await Navigation.PushAsync(photoPage);
+                selectedEmployee = null;
+            }
+        
         }
     }
 }

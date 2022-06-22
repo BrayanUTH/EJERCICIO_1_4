@@ -14,6 +14,10 @@ namespace EJERCICIO_1_4
         public MainPage()
         {
             InitializeComponent();
+            if (App.DBase == null)
+            {
+
+            }
         }
 
         private void btnViewList_Clicked(object sender, EventArgs e)

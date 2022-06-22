@@ -54,7 +54,7 @@
             <Button Text="Ver Empleado"
                 CornerRadius="10"
                     x:Name="BtnViewEmployees"
-                    Clicked="BtnViewEmployees_Clicked"/>
+                    Clicked="BtnViewEmployees_Clicked" BackgroundColor="Yellow"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
